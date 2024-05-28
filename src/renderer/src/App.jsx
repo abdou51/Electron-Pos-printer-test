@@ -1,14 +1,12 @@
-import React from 'react'
-
 const { ipcRenderer } = window.require('electron')
 
 const PrintButton = () => {
   const handlePrint = () => {
     const options = {
       preview: false,
-      margin: '0 0 0 0',
       copies: 1,
-      printerName: 'Xprinter',
+      margin: '0 0 0 0',
+      printerName: 'XP-80C',
       silent: true,
       pageSize: '40mm'
     }
@@ -16,20 +14,22 @@ const PrintButton = () => {
     const dataToPrint = [
       {
         type: 'text',
-        value: 'hello world',
-        style: { fontSize: '16px', fontWeight: '700' }
-      },
-      {
-        type: 'text',
         value: '2000 DA',
-        style: { fontSize: '16px', fontWeight: '700' }
+        style: { fontSize: '18px', fontWeight: '800', textAlign: 'left' }
       },
+      // {
+      //   type: 'text',
+      //   value: '2000 DA',
+      //   style: { fontSize: '14px', fontWeight: '800', textAlign: 'left' }
+      // },
       {
         type: 'barCode',
-        value: '023456789010',
-        height: 12, // height of barcode, applicable only to bar and QR codes
-        width: 1, // width of barcode, applicable only to bar and QR codes
-        fontsize: 8
+        value: '308488224',
+        height: 18,
+        width: 1,
+        fontsize: 12,
+        displayValue: true,
+        style: { fontSize: '16px', fontWeight: '800', textAlign: 'left' }
       }
     ]
 
